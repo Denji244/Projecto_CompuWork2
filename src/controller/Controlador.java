@@ -9,7 +9,6 @@ package controller;
  * @author user
  */
 import model.Empleado;
-import model.Temporal;
 import model.Departamento;
 import java.util.ArrayList;
 import model.Temporal;
@@ -22,6 +21,7 @@ public class Controlador {
     public Controlador() {
         this.empleados = new ArrayList<>();
         this.departamentos = new ArrayList<>();
+        this.temporales = new ArrayList<>();
     }
 
     public void agregarEmpleado(Empleado empleado) {
@@ -201,20 +201,39 @@ public class Controlador {
         }
     }
 
-    public void mostrarEmpleados() {
-        System.out.println("Empleados: ");
-        for (int i = 0; i < empleados.size(); i++) {
-            Empleado e = empleados.get(i);
-            System.out.println("ID: " + e.getId() + " | Nombre del empleado: " + e.getNombre() + " " + e.getApellido()+"\n");
-        }
+    public String mostrarEmpleados() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Empleados:\n");
+            for (int i = 0; i < empleados.size(); i++) {
+                Empleado e = empleados.get(i);
+                sb.append("ID: ").append(e.getId())
+                .append(" | Nombre del empleado: ")
+                .append(e.getNombre()).append(" ")
+                .append(e.getApellido()).append(" ")
+                .append(" | Cargo del empleado: ")
+                .append(e.getCargo()).append(" ")
+                .append(" | Correo del empleado: ")
+                .append(e.getCorreo()).append("\n\n");
+            }
+
+        return sb.toString();
     }
     
-    public void mostrarEmpleadosT() {
-        System.out.println("Empleados Temporales: ");
+    public String mostrarEmpleadosT() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Empleados Temporales:\n");
         for (int i = 0; i < temporales.size(); i++) {
             Temporal t = temporales.get(i);
-            System.out.println("ID: " + t.getId() + " | Nombre del empleado: " + t.getNombre() + " " + t.getApellido()+" Fecha incio: "+t.getFechainicio()+" Fecha final: "+t.getFechafinal()+"\n");
+            sb.append("ID: ").append(t.getId())
+            .append(" | Nombre del empleado: ").append(t.getNombre()).append(" ").append(t.getApellido())
+            .append(" | Cargo del empleado: ").append(t.getCargo()).append(" ")
+            .append(" | Correo del empleado: ").append(t.getCorreo()).append(" ")
+            .append(" | Fecha inicio: ").append(t.getFechainicio()).append(" ")
+            .append(" | Fecha final: ").append(t.getFechafinal())
+            .append("\n\n");
         }
+
+        return sb.toString();
     }
 
     public void mostrarDepartamentos() {

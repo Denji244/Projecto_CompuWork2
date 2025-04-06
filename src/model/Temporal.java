@@ -13,8 +13,8 @@ public class Temporal extends Empleado{
     private String fechafinal;
     
     
-    public Temporal(int id, String nombre, String apellido, String cargo, String correo, String fechainicio, String fechafinal) {
-        super(id, nombre, apellido, cargo, correo);
+    public Temporal(String nombre, String apellido, String cargo, String correo, String fechainicio, String fechafinal) {
+        super(nombre, apellido, cargo, correo);
         this.fechainicio=fechainicio;
         this.fechafinal=fechafinal;
     }

@@ -10,6 +10,7 @@ package model;
  */
 
 public class Empleado {
+    private static int contador=1;
     private int id;
     private String nombre;
     private String apellido;
@@ -25,9 +26,30 @@ public class Empleado {
         this.correo = correo;
         this.permanente = permanente;
     }
+
+    
+    public Empleado(String nombre, String apellido, String cargo, String correo, boolean permanente) {
+        this.id = contador;
+        contador++;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cargo = cargo;
+        this.correo = correo;
+        this.permanente = permanente;
+    }
     
     public Empleado(int id, String nombre, String apellido, String cargo, String correo) {
-        this.id = id;
+        this.id = contador;
+        contador++;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cargo = cargo;
+        this.correo = correo;
+    }
+    
+    public Empleado (String nombre, String apellido, String cargo, String correo) {
+        this.id = contador;
+        contador++;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cargo = cargo;
